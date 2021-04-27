@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row p-3 justify-content-center">
+    <div class="d-flex h-100">
+      <div class="searchbar">
+        <input
+          class="search_input"
+          type="text"
+          name=""
+          placeholder="Search by Product Name"
+        />
+        <a class="search_icon" type="button"><i class="fa fa-search"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="row p-3">
+    <div class="col-2 h-100 bg-card">
+      <div class="t-products p-2 text-center bg-card">
+        <h4 class="text-uppercase p-3">Category</h4>
+        <div class="p-lists">
+          <div class="d-flex pb-3">
+            <button class="btn btn-block border-dark border">Footwear</button>
+          </div>
+          <div class="d-flex pb-3">
+            <button class="btn btn-block border-dark border">Handbags</button>
+          </div>
+          <div class="d-flex pb-3">
+            <button class="btn btn-block border-dark border">
+              Mobile Phones
+            </button>
+          </div>
+          <div class="d-flex pb-3">
+            <button class="btn btn-block border-dark border">
+              Accessories
+            </button>
+          </div>
+          <div class="d-flex pb-3">
+            <button class="btn btn-block border-dark border">Watch</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-10 style-6" style="overflow-y: scroll; height: 73vh">
+      <div class="row">
+        <div class="col-4 mb-2" *ngFor="let product of products; let i = index">
+          <div class="product m-1 p-2 bg-card rounded h-100 w-100">
+            <span class="p-3 rounded-circle bg-off pull-right">x{{
+              product.quantity
+            }}</span>
+            <div class="text-center">
+              <img src="../../assets/images/shoe.svg" width="200" />
+            </div>
+            <div class="about text-center">
+              <h6>{{ product.name }}</h6>
+              <p class="px-3">{{ product.detail }}</p>
+              <span>Rs. {{ product.price }}</span>
+            </div>
+            <div
+              class="cart-button mt-3 px-2 d-flex justify-content-center align-items-center"
+            >
+              <button
+                class="btn bg-brown text-center text-black font-weight-bold text-uppercase"
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

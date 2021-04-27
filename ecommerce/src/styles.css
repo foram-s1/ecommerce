@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.bg-brown{
+    background-color: #A87C49;
+}
+.text-black{
+    color: #000;
+}
+.bg-off{
+    background-color: #D7CBBE;
+}
+.bg-card{
+    background-color: #F1E9E9;
+}
+body { padding-top: 60px; }

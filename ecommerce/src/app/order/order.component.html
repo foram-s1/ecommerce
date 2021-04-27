@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row p-4 justify-content-center">
+    <h1>
+      <img src="../../assets/images/order.svg" width="150" />
+      Order History
+    </h1>
+  </div>
+  <table class="table table-striped table-dark table-bordered table-hover m-3">
+    <thead class="m-3">
+      <tr>
+        <th>OrderID</th>
+        <th>Order Date</th>
+        <th>Delivery Date</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>View Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ order.order_date }}</td>
+        <td>{{ order.delivery_date }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.tot_amount }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning"
+            data-toggle="tooltip"
+            title="View"
+            (click)="loadItem()"
+          >
+            <span data-toggle="modal" data-target="#viewItems">
+              <i class="fa fa-eye" aria-hidden="true"> </i>
+            </span>
+          </button>
+          <button class="btn ml-2  btn-danger text-center mr-3 text-black">
+                <i class="fa fa-trash fa-lg"></i>
+              </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div
+  class="modal fade"
+  id="viewItems"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Invoice</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table
+          class="table table-striped table-dark table-bordered table-hover"
+        >
+          <thead class="m-3">
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.price }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.tot }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 class="text-center"> Total Amount paid: {{ orders[0].tot_amount}} </h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

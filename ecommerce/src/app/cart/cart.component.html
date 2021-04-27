@@ -1,0 +1,75 @@
+<div class="container-fluid ">
+  <div class="row p-4 justify-content-center">
+    <h1>
+      <img src="../../assets/images/cart.svg" width="90" />
+      Your Cart
+    </h1>
+  </div>
+  <div class="row p-5">
+    <div class="col-8 " >
+      <div
+        *ngFor="let item of cart; let i = index"
+        class="row mb-4 pr-2 ml-2 bg-card"
+      >
+        <div class="col-md-3 m-auto justfy-content-center">
+          <img src="../../assets/images/shoe.svg" width="150" height="150" />
+        </div>
+        <div class="col-md-7">
+          <div class="about mt-3">
+            <h5>{{item.name}}</h5>
+            <p>
+              <span class="font-weight-bold">Price: </span>{{item.price}}<br />
+              <span class="font-weight-bold">Available: </span>12
+            </p>
+
+            <div class="cart-button mb-2">
+              <button class="btn bg-brown text-center mr-3 text-black">
+                <i class="fa fa-trash fa-lg"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 p-1">
+          <input
+            type="number"
+            class="count text-center rounded-circle pull-right bg-off"
+            style="width: 60px; height: 60px"
+            min="0"
+            max="5"
+            name="qty"
+            value={{item.quantity}}
+          />
+          <p class="text-center" style="margin-top: 90%">
+            <span class="font-weight-bold">Amount:</span>{{item.price*item.quantity}}&nbsp;<i
+              class="fa fa-rupee"
+            ></i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 ml-5 bg-card h-100">
+      <div class="t-products p-2 text-center bg-card">
+        <h4 class="text-uppercase p-3">Cart summary</h4>
+        <div class="p-lists">
+          <div class="d-flex justify-content-between mt-2">
+            <span>SUB TOTAL</span> <span>{{total}}0.0</span>
+          </div>
+          <div class="d-flex justify-content-between mt-2">
+            <span>Delivery Charges</span> <span>0.0</span>
+          </div>
+          <div class="d-flex justify-content-between mt-2">
+            <span>--------------------------------------------------</span>
+          </div>
+          <div class="d-flex justify-content-between mt-2 font-weight-bold">
+            <span>GRAND TOTAL</span> <span>{{total}}0.0</span>
+          </div>
+          <div class="d-flex justify-content-center mt-2">
+            <button class="btn mt-5 bg-brown font-weight-bold">
+              Place your Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
