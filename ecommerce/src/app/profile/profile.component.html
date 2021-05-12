@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="details" class="container">
   <div class="card  mt-5 text-center">
     <div class="card-header text-white bg-dark">
       <h1>Your Details</h1>
@@ -8,20 +8,34 @@
       <table class="table">
         <tr>
           <th>Name:</th>
-          <td>{{details.name}}</td>
+          <td>
+            <input *ngIf="this.edit" type="text" name="Name" [(ngModel)]="newdetails.name"/>
+            <span *ngIf="!this.edit">{{details.name}}</span>
+          </td>
         </tr>
         <tr>
           <th>Username:</th>
           <td>{{details.email}}</td>
         </tr><tr>
           <th> Contact:</th>
-          <td>{{details.phone}}</td>
+          <td> 
+            <input *ngIf="this.edit" type="number" name="Phone" [(ngModel)]="newdetails.phone"/>
+            <span *ngIf="!this.edit">{{details.phone}}</span>
+          </td>
         </tr><tr>
           <th>Address:</th>
-          <td>{{details.address}}</td>
+          <td>
+            <input *ngIf="this.edit" type="textarea" name="Address" [(ngModel)]="newdetails.address"/>
+            <span *ngIf="!this.edit">{{details.address}}</span>
+          </td>
         </tr><tr>
           <th>Balance:</th>
           <td>{{details.coins}}</td>
+        </tr>
+        <tr class="text-center">
+        <th></th>
+          <td><button type="submit" *ngIf="this.edit" class="btn btn-success" (click)="updDetails(newdetails.name, newdetails.phone, newdetails.address)"> Submit </button>
+          <button *ngIf="!this.edit" class="btn btn-success" (click)="editing()"> Edit Details </button></td>
         </tr>
       </table>
     </div>

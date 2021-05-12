@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from './authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent {
   title = 'ecommerce';
-  constructor( private toastr: ToastrService ) { }
-
-  ngOnInit(): void {
-    this.showSuccess();
-  }
-  showSuccess() {
-    this.toastr.success('Added to cart','',{extendedTimeOut:5000});
-  }
-
+  constructor( public auth: AuthenticationService) { }
 }
+//Batav k

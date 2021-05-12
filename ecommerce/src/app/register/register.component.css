@@ -1,7 +1,44 @@
-.vertical {
+/* .vertical {
     border-left: 1px solid black;
     height: 68px;
     position:absolute;
     left: 50%;
     top:0;
-}
+} */
+
+.bg{
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 92.5vh;
+	font-family: 'Numans', sans-serif;
+	}
+	
+	.container{
+	height: 100%;
+	align-content: center;
+	}
+	
+	.card{
+	height: 400px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 400px;
+	background-color: rgba(0,0,0,0.5) !important;
+	}
+	
+	.card-header h3{
+	color: white;
+	}
+
+	.login_btn{
+	color: black;
+	background-color:blueviolet;
+	width: 100px;
+    }
+    
+	.login_btn:hover{
+	color: black;
+	background-color: white;
+	}
+	
+	

@@ -13,26 +13,32 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthenticationService } from './authentication.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CartComponent,
+    HomeComponent,
     OrderComponent,
     TransactionComponent,
     ProfileComponent,
     RegisterComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut:100000}),
   ],
-  providers: [RequestService],
+
+  providers: [RequestService, AuthenticationService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

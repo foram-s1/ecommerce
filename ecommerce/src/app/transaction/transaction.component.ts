@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
 
 
 interface Transact{
@@ -19,8 +20,8 @@ interface Transact{
 export class TransactionComponent implements OnInit {
 
   transacts: Transact[] = []
-
-  constructor(private request: RequestService) { }
+  amount:any;
+  constructor(private request: RequestService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loadTransact();
@@ -37,5 +38,16 @@ export class TransactionComponent implements OnInit {
         })
       }
     })
+    }
+
+    addCoins(amt: number): void {
+      this.request.addCoins(amt).subscribe((data: any) =>{
+        if(data.msg0){
+          this.toastr.error(data.msg0)
+        } else{
+          this.toastr.success(data.msg1)
+        }
+      })
+      this.loadTransact();
     }
 }

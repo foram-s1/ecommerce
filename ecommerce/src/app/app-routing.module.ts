@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationService } from './authentication.service';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
@@ -9,11 +10,11 @@ import { TransactionComponent } from './transaction/transaction.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'cart', component: CartComponent},
-  {path:'order', component: OrderComponent },
-  {path:'transaction', component: TransactionComponent},
-  {path:'profile', component: ProfileComponent},
   {path:'register', component: RegisterComponent},
+  {path:'cart', component: CartComponent, canActivate: [AuthenticationService]},
+  {path:'order', component: OrderComponent, canActivate: [AuthenticationService] },
+  {path:'transaction', component: TransactionComponent, canActivate: [AuthenticationService]},
+  {path:'profile', component: ProfileComponent, canActivate: [AuthenticationService]},
 ];
 
 @NgModule({
